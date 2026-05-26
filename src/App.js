@@ -174,6 +174,15 @@ export default function App() {
             </span>
           </div>
 
+          {/* Imagem do evento */}
+          <div className="mb-8 rounded-2xl lg:rounded-[2rem] overflow-hidden">
+            <img
+              src="/imagem_evento.jpeg"
+              alt="Workshop Do Zero ao Arremate"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
           <h1 className="text-5xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6 text-balance">
             Do Zero ao<br />
             <span className="text-[#2ed7d0]">Arremate</span>
@@ -226,63 +235,47 @@ export default function App() {
 
         {/* ── INSTRUTOR — AUTORIDADE ── */}
         <section className="my-16 lg:my-24">
-          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0] mb-3 text-center">
-            Quem vai te ensinar
-          </p>
+          <div className="flex flex-col lg:flex-row items-center gap-8">
 
-          {/* Foto + Bio */}
-          <div className="rounded-[2.5rem] border border-[#2ed7d0]/20 bg-[#2ed7d0]/[0.03] p-8 lg:p-12 relative overflow-hidden mb-6">
-            <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-[#2ed7d0]/[0.06] blur-3xl" />
-            <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-8">
-
-              {/* FOTO — substitua o src pelo caminho da sua imagem, ex: "/foto-matheus.jpg" */}
-              <div className="shrink-0">
-                <div className="relative h-36 w-36 lg:h-44 lg:w-44 rounded-2xl overflow-hidden border-2 border-[#2ed7d0]/30 shadow-[0_0_40px_rgba(46,215,208,0.15)]">
-                  <img
-                    src="/matheus.png"
-                    alt="Matheus Oleiro"
-                    className="h-full w-full object-cover"
-                    style={{ objectPosition: "center 15%" }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  {/* Fallback se a foto não carregar */}
-                  <div className="hidden h-full w-full items-center justify-center bg-[#2ed7d0]/10 text-5xl font-black text-[#2ed7d0]">
-                    M
-                  </div>
-                </div>
-              </div>
-
-              {/* Bio */}
-              <div className="text-center lg:text-left">
-                <h2 className="text-2xl lg:text-4xl font-black uppercase mb-1">Matheus Oleiro</h2>
-                <p className="text-[#2ed7d0] text-sm font-bold uppercase tracking-wider mb-4">
-                  Investidor Imobiliário • Criador do Método dos 4 Filtros
-                </p>
-                <p className="text-slate-400 leading-relaxed mb-2">
-                  Investidor imobiliário brasileiro baseado na Flórida, especializado em leilões de Tax Deed e foreclosure nos EUA. Mais de $4 milhões negociados.
-                </p>
-                <p className="text-slate-400 leading-relaxed">
-                  Ensina brasileiros com capital a entrar no real estate americano com método, segurança e margem real.
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2 justify-center lg:justify-start">
-                  {["$4M+ Negociados", "Tax Deed & Foreclosure", "Método dos 4 Filtros", "Florida"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[#2ed7d0]/20 bg-[#2ed7d0]/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#2ed7d0]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+            {/* Texto — esquerda */}
+            <div className="flex-1">
+              <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0] mb-2">
+                Quem vai te ensinar
+              </p>
+              <h2 className="text-3xl lg:text-5xl font-black uppercase leading-tight mb-1">
+                Matheus Oleiro
+              </h2>
+              <p className="text-[#2ed7d0] text-sm font-bold uppercase tracking-wider mb-6">
+                Especialista em Leilões de Propriedades nos EUA
+              </p>
+              <p className="text-slate-400 leading-relaxed mb-3">
+                Investidor imobiliário brasileiro baseado na Flórida, especializado em Tax Deed e foreclosure nos EUA. Mais de $4 milhões negociados.
+              </p>
+              <p className="text-slate-400 leading-relaxed mb-8">
+                Ensina brasileiros com capital a entrar no real estate americano com método, segurança e margem real. Criador do Método dos 4 Filtros.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["$4M+ Negociados", "Tax Deed & Foreclosure", "Método dos 4 Filtros", "Florida"].map((tag) => (
+                  <span key={tag} className="rounded-full border border-[#2ed7d0]/20 bg-[#2ed7d0]/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#2ed7d0]">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
+
+            {/* Foto — direita */}
+            <div className="lg:w-[420px] shrink-0">
+              <img
+                src="/matheus2.png"
+                alt="Matheus Oleiro"
+                className="w-full h-auto"
+              />
+            </div>
+
           </div>
 
           {/* Números de autoridade */}
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3 mt-12">
             {[
               { value: "$4M+", label: "em propriedades negociadas nos EUA" },
               { value: "7h", label: "de imersão prática no computador" },
