@@ -18,12 +18,12 @@ import {
 const CONFIG = {
   paypalLink: "COLE_O_LINK_DO_PAYPAL_AQUI",
   eventDate: "Sábado, 30 de Maio de 2026",
-  eventTime: "10h00 AM",
+  eventTime: "10h às 17h",
   eventLocation: "Damascus, MD",
   eventAddress: "Endereço completo em breve",
   price: "$99",
   priceOld: "$197",
-  spots: 30,
+  spots: 20,
 };
 
 // ============================================================
@@ -170,7 +170,7 @@ export default function App() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2ed7d0]" />
             </span>
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0]">
-              Evento Presencial • Damascus, MD
+              Workshop Presencial • Damascus, MD
             </span>
           </div>
 
@@ -180,14 +180,13 @@ export default function App() {
           </h1>
 
           <p className="text-lg lg:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            Um dia inteiro ao vivo para você entender como comprar imóveis em leilão nos EUA...
-            mesmo que nunca tenha investido em imóveis antes.
+            Aprenda em 1 dia como comprar imóveis em leilão nos EUA com segurança e margem.
           </p>
 
           {/* Info badges row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 max-w-2xl mx-auto">
             <InfoBadge icon={Calendar} label="Data" value="30 de Maio, 2026" />
-            <InfoBadge icon={Clock} label="Horário" value="10h00 AM" />
+            <InfoBadge icon={Clock} label="Horário" value="10h às 17h" />
             <InfoBadge icon={MapPin} label="Local" value="Damascus, MD" />
           </div>
 
@@ -225,22 +224,99 @@ export default function App() {
 
         <Divider />
 
+        {/* ── INSTRUTOR — AUTORIDADE ── */}
+        <section className="my-16 lg:my-24">
+          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0] mb-3 text-center">
+            Quem vai te ensinar
+          </p>
+
+          {/* Foto + Bio */}
+          <div className="rounded-[2.5rem] border border-[#2ed7d0]/20 bg-[#2ed7d0]/[0.03] p-8 lg:p-12 relative overflow-hidden mb-6">
+            <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-[#2ed7d0]/[0.06] blur-3xl" />
+            <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-8">
+
+              {/* FOTO — substitua o src pelo caminho da sua imagem, ex: "/foto-matheus.jpg" */}
+              <div className="shrink-0">
+                <div className="relative h-36 w-36 lg:h-44 lg:w-44 rounded-2xl overflow-hidden border-2 border-[#2ed7d0]/30 shadow-[0_0_40px_rgba(46,215,208,0.15)]">
+                  <img
+                    src="/matheus.png"
+                    alt="Matheus Oleiro"
+                    className="h-full w-full object-cover"
+                    style={{ objectPosition: "center 15%" }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback se a foto não carregar */}
+                  <div className="hidden h-full w-full items-center justify-center bg-[#2ed7d0]/10 text-5xl font-black text-[#2ed7d0]">
+                    M
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio */}
+              <div className="text-center lg:text-left">
+                <h2 className="text-2xl lg:text-4xl font-black uppercase mb-1">Matheus Oleiro</h2>
+                <p className="text-[#2ed7d0] text-sm font-bold uppercase tracking-wider mb-4">
+                  Investidor Imobiliário • Criador do Método dos 4 Filtros
+                </p>
+                <p className="text-slate-400 leading-relaxed mb-2">
+                  Investidor imobiliário brasileiro baseado na Flórida, especializado em leilões de Tax Deed e foreclosure nos EUA. Mais de $4 milhões negociados.
+                </p>
+                <p className="text-slate-400 leading-relaxed">
+                  Ensina brasileiros com capital a entrar no real estate americano com método, segurança e margem real.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2 justify-center lg:justify-start">
+                  {["$4M+ Negociados", "Tax Deed & Foreclosure", "Método dos 4 Filtros", "Florida"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-[#2ed7d0]/20 bg-[#2ed7d0]/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#2ed7d0]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Números de autoridade */}
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              { value: "$4M+", label: "em propriedades negociadas nos EUA" },
+              { value: "7h", label: "de imersão prática no computador" },
+              { value: "20", label: "vagas apenas nesta turma" },
+            ].map(({ value, label }) => (
+              <div key={value} className="flex flex-col items-center text-center rounded-2xl border border-[#2ed7d0]/15 bg-[#2ed7d0]/[0.03] p-8">
+                <span className="text-4xl lg:text-5xl font-black text-[#2ed7d0] mb-2">{value}</span>
+                <p className="text-slate-500 text-sm leading-relaxed">{label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Divider />
+
         {/* ── PARA QUEM É ── */}
         <section className="my-16 lg:my-24">
           <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0] mb-3 text-center">
             Este evento é para você se...
           </p>
-          <h2 className="text-3xl lg:text-5xl font-black uppercase text-center mb-10 leading-tight">
-            Você tem capital e não sabe<br />
-            <span className="text-[#2ed7d0]">onde investir nos EUA</span>
+          <h2 className="text-3xl lg:text-5xl font-black uppercase text-center mb-4 leading-tight">
+            Você tem dinheiro. Mas não sabe<br />
+            <span className="text-[#2ed7d0]">onde investir com segurança</span>
           </h2>
+          <p className="text-slate-400 text-lg text-center max-w-2xl mx-auto mb-10">
+            Milhares de brasileiros nos EUA acumulam capital e ficam parados por medo de errar. Enquanto isso, as melhores oportunidades do mercado imobiliário americano passam por leilão — abaixo do mercado, com margem real.
+          </p>
 
           <ul className="space-y-4 max-w-2xl mx-auto">
-            <CheckItem>Você mora nos EUA e quer gerar cashflow em dólares sem depender de empregador</CheckItem>
-            <CheckItem>Já ouviu falar em Tax Deed e leilões de imóveis, mas nunca entendeu como funciona na prática</CheckItem>
-            <CheckItem>Tem capital parado e não sabe em qual ativo colocar com segurança</CheckItem>
-            <CheckItem>Quer um modelo de investimento com potencial de retorno alto e processo replicável</CheckItem>
-            <CheckItem>Prefere aprender presencialmente, com casos reais e sem enrolação</CheckItem>
+            <CheckItem>Você não sabe como analisar uma propriedade antes de comprar</CheckItem>
+            <CheckItem>Tem medo de pagar mais do que vale ou de esconder dívidas</CheckItem>
+            <CheckItem>Não conhece o processo de leilão nos EUA e isso trava você</CheckItem>
+            <CheckItem>Já perdeu oportunidades por não saber o que está olhando</CheckItem>
+            <CheckItem>Continua esperando o momento certo enquanto o mercado não para</CheckItem>
           </ul>
         </section>
 
@@ -258,12 +334,12 @@ export default function App() {
 
           <div className="grid gap-4 md:grid-cols-2">
             {[
-              { n: "01", t: "Como funciona o mercado de leilões nos EUA", d: "Tax Deed vs Foreclosure: diferenças, riscos e oportunidades reais." },
-              { n: "02", t: "Como pesquisar e avaliar propriedades", d: "O processo exato de due diligence antes de dar um lance." },
-              { n: "03", t: "Como arrematar sem cometer os erros clássicos", d: "Os erros que custaram caro para outros investidores — e como você evita." },
-              { n: "04", t: "O que acontece depois do arremate", d: "Reforma, revenda, aluguel: como transformar o imóvel em cashflow." },
-              { n: "05", t: "Estrutura jurídica e financeira", d: "Como organizar sua empresa, conta e fluxo para operar com segurança." },
-              { n: "06", t: "Casos reais de operações já feitas", d: "Você vai ver números reais de imóveis que já passei — do lance ao lucro." },
+              { n: "01", t: "Análise de Propriedades", d: "Como avaliar um imóvel em leilão do zero, o que olhar, o que ignorar e onde estão as armadilhas." },
+              { n: "02", t: "Contexto de Região", d: "Como entender o mercado local antes de dar um lance. Crescimento, demanda e potencial de valorização." },
+              { n: "03", t: "Análise de Mercado", d: "Ferramentas e dados reais para saber se a propriedade é oportunidade ou cilada." },
+              { n: "04", t: "Estimativa de Reforma", d: "Como calcular o custo de reforma sem ser surpreendido depois." },
+              { n: "05", t: "Valor Máximo de Lance", d: "A fórmula exata para saber até onde ir no leilão sem destruir sua margem." },
+              { n: "06", t: "Encontrar Oportunidades", d: "Onde achar leilões, como filtrar os melhores e construir fluxo constante." },
             ].map((item) => (
               <div
                 key={item.n}
@@ -283,35 +359,28 @@ export default function App() {
 
         <Divider />
 
-        {/* ── QUEM SOU EU ── */}
+        {/* ── MÉTODO DOS 4 FILTROS ── */}
         <section className="my-16 lg:my-24">
-          <div className="rounded-[2.5rem] border border-[#2ed7d0]/20 bg-[#2ed7d0]/[0.03] p-8 lg:p-14 relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-[#2ed7d0]/[0.06] blur-3xl" />
-            <div className="relative z-10 flex flex-col lg:flex-row items-start gap-8">
-              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-[#2ed7d0]/10 border border-[#2ed7d0]/20 text-4xl font-black text-[#2ed7d0]">
-                M
+          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0] mb-3 text-center">
+            O framework
+          </p>
+          <h2 className="text-3xl lg:text-5xl font-black uppercase text-center mb-10 leading-tight">
+            Método dos<br />
+            <span className="text-[#2ed7d0]">4 Filtros</span>
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { n: "01", label: "Localização", desc: "O imóvel está onde as pessoas querem morar?" },
+              { n: "02", label: "Mercado", desc: "O mercado local suporta o preço que você precisa para sair?" },
+              { n: "03", label: "Propriedade", desc: "O imóvel tem problemas que vão destruir sua margem?" },
+              { n: "04", label: "Financeiro", desc: "Os números fecham com segurança antes do lance?" },
+            ].map(({ n, label, desc }) => (
+              <div key={n} className="flex flex-col rounded-2xl border border-[#2ed7d0]/15 bg-[#2ed7d0]/[0.03] p-6 transition-colors hover:border-[#2ed7d0]/30">
+                <span className="text-5xl font-black text-[#2ed7d0]/20 leading-none mb-4 select-none">{n}</span>
+                <h3 className="font-black text-white uppercase text-base mb-2">{label}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
               </div>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#2ed7d0] mb-2">Quem vai te ensinar</p>
-                <h2 className="text-2xl lg:text-4xl font-black uppercase mb-4">Matheus Oleiro</h2>
-                <p className="text-slate-400 leading-relaxed mb-4">
-                  Investidor, construtor e mentor com operações ativas no mercado de leilões de imóveis nos EUA. Já atuei como Public Adjuster, remediei mais de 600 casos de mofo e obras, e hoje opero no mercado de Tax Deed e Foreclosure em Florida e outros estados.
-                </p>
-                <p className="text-slate-400 leading-relaxed">
-                  Faço parte do ecossistema do Clube de Negócios do Nézio Monteiro e já guiei dezenas de brasileiros nos EUA a dar o primeiro arremate com segurança.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {["Investidor Ativo", "Construtor", "Mentor", "Florida CGC"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[#2ed7d0]/20 bg-[#2ed7d0]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2ed7d0]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -359,7 +428,7 @@ export default function App() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Calendar, label: "Data", value: "30 Mai 2026", sub: "Sábado" },
-              { icon: Clock, label: "Início", value: "10h00 AM", sub: "Presença obrigatória" },
+              { icon: Clock, label: "Horário", value: "10h às 17h", sub: "7h de imersão prática" },
               { icon: MapPin, label: "Local", value: "Damascus, MD", sub: "Endereço em breve" },
               { icon: Users, label: "Turma", value: `${CONFIG.spots} pessoas`, sub: "Vagas limitadas" },
             ].map(({ icon: Icon, label, value, sub }) => (
@@ -425,11 +494,11 @@ export default function App() {
               </div>
 
               <h2 className="text-3xl lg:text-6xl font-black uppercase mb-4 leading-tight">
-                Uma decisão que pode<br />
-                <span className="text-[#2ed7d0]">mudar seu próximo ano</span>
+                Invista um dia.<br />
+                <span className="text-[#2ed7d0]">Mude sua trajetória.</span>
               </h2>
               <p className="text-slate-400 text-lg mb-8 max-w-lg mx-auto">
-                Você tem capital. Falta o método. Um sábado em Damascus pode ser o ponto de virada.
+                30 de maio em Damascus, MD. Das 10h às 17h. Você sai com método, ferramentas e clareza para agir.
               </p>
 
               <div className="flex items-center justify-center gap-3 mb-6">
@@ -438,7 +507,7 @@ export default function App() {
               </div>
 
               <div className="max-w-md mx-auto mb-6">
-                <CTAButton text="Quero Garantir Minha Vaga" href={CONFIG.paypalLink} />
+                <CTAButton text="Garantir Minha Vaga Agora — $99" href={CONFIG.paypalLink} />
               </div>
 
               <div className="flex items-center justify-center gap-2 text-slate-600 text-xs">
