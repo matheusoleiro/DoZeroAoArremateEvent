@@ -16,7 +16,7 @@ import {
 // CONFIGURAÇÕES DO EVENTO — EDITE AQUI
 // ============================================================
 const CONFIG = {
-  paypalLink: "COLE_O_LINK_DO_PAYPAL_AQUI",
+  paypalLink: "https://www.paypal.com/ncp/payment/34WX2CBW6W93S",
   eventDate: "Sábado, 30 de Maio de 2026",
   eventTime: "10h às 17h",
   eventLocation: "Damascus, MD",
